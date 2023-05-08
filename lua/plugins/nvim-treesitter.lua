@@ -1,3 +1,6 @@
+return {'nvim-treesitter/nvim-treesitter',
+    -- build = ':tsupdate',
+config = function()
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = 'all',
   highlight = {
@@ -16,4 +19,6 @@ require 'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   }
+}
+end
 }

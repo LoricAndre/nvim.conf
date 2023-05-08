@@ -1,4 +1,5 @@
 vim.cmd [[ colorscheme rose-pine ]]
+
 local options = {
   autoindent = true,
   backspace = 'indent,eol,start',

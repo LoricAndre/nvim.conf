@@ -53,10 +53,10 @@ local config = {
       nmap { '<leader>lD', vim.lsp.buf.declaration }
       nmap { '<leader>li', vim.lsp.buf.implementation }
       nmap { '<leader>lt', vim.lsp.buf.type_definition }
-      nmap { '<leader>lr', vim.lsp.buf.references }
+      -- nmap { '<leader>lr', vim.lsp.buf.references }
       nmap { '<leader>lR', vim.lsp.buf.rename }
-      nmap { '<leader>ls', vim.lsp.buf.document_symbol }
-      nmap { '<leader>lS', vim.lsp.buf.workspace_symbol }
+      -- nmap { '<leader>ls', vim.lsp.buf.document_symbol }
+      -- nmap { '<leader>lS', vim.lsp.buf.workspace_symbol }
       nmap { '<leader>la', vim.lsp.buf.code_action }
       vmap { '<leader>la', vim.lsp.buf.code_action }
       nmap { '<leader>lf', function() vim.lsp.buf.format { async = true } end }
@@ -87,6 +87,18 @@ local config = {
   }
 }
 
+return   {'williamboman/mason.nvim',
+    dependencies = {
+      'neovim/nvim-lspconfig', 'jubnzv/virtual-types.nvim',
+      'kosayoda/nvim-lightbulb',
+      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+      'theprimeagen/refactoring.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'jose-elias-alvarez/null-ls.nvim', 'jayp0521/mason-null-ls.nvim',
+      'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap', "jayp0521/mason-nvim-dap.nvim",
+      "coq_nvim"
+    },
+config = function()
 require 'mason'.setup {
   install_root_dir = vim.fn.stdpath('data') .. '/mason/'
 }
@@ -98,10 +110,9 @@ require 'mason-lspconfig'.setup {
 }
 require 'mason-lspconfig'.setup_handlers {
   function(server)
-    require 'lspconfig'[server].setup(require('coq').lsp_ensure_capabilities())
-    --   capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    --   on_attach = config.lsp.on_attach
-    -- }
+    require 'lspconfig'[server].setup(require('coq').lsp_ensure_capabilities {
+      on_attach = config.lsp.on_attach
+    })
   end
 }
 
@@ -122,4 +133,6 @@ require 'mason-null-ls'.setup {
 require 'null-ls'.setup {
   sources = { require('null-ls').builtins.diagnostics.markdownlint_cli2.with { args = { "$FILENAME" } } },
   debug = true,
+}
+end
 }
