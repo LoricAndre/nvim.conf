@@ -87,52 +87,53 @@ local config = {
   }
 }
 
-return   {'williamboman/mason.nvim',
-    dependencies = {
-      'neovim/nvim-lspconfig', 'jubnzv/virtual-types.nvim',
-      'kosayoda/nvim-lightbulb',
-      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-      'theprimeagen/refactoring.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'jose-elias-alvarez/null-ls.nvim', 'jayp0521/mason-null-ls.nvim',
-      'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap', "jayp0521/mason-nvim-dap.nvim",
-      "coq_nvim"
-    },
-config = function()
-require 'mason'.setup {
-  install_root_dir = vim.fn.stdpath('data') .. '/mason/'
-}
+return {
+  'williamboman/mason.nvim',
+  dependencies = {
+    'neovim/nvim-lspconfig', 'jubnzv/virtual-types.nvim',
+    'kosayoda/nvim-lightbulb',
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    'theprimeagen/refactoring.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'jose-elias-alvarez/null-ls.nvim', 'jayp0521/mason-null-ls.nvim',
+    'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap', "jayp0521/mason-nvim-dap.nvim",
+    "coq_nvim"
+  },
+  config = function()
+    require 'mason'.setup {
+      install_root_dir = vim.fn.stdpath('data') .. '/mason/'
+    }
 
--- LSP
-require 'mason-lspconfig'.setup {
-  ensure_installed = ensure_installed.lsp,
-  automatic_installation = true
-}
-require 'mason-lspconfig'.setup_handlers {
-  function(server)
-    require 'lspconfig'[server].setup(require('coq').lsp_ensure_capabilities {
-      on_attach = config.lsp.on_attach
-    })
+    -- LSP
+    require 'mason-lspconfig'.setup {
+      ensure_installed = ensure_installed.lsp,
+      automatic_installation = true
+    }
+    require 'mason-lspconfig'.setup_handlers {
+      function(server)
+        require 'lspconfig'[server].setup(require('coq').lsp_ensure_capabilities {
+          on_attach = config.lsp.on_attach
+        })
+      end
+    }
+
+    -- DAP
+    config.dap.setup()
+    require 'mason-nvim-dap'.setup {
+      ensure_installed = ensure_installed.dap,
+      automatic_setup = true,
+      automatic_installation = true
+    }
+
+    -- NULL LS
+    require 'mason-null-ls'.setup {
+      ensure_installed = ensure_installed.null_ls,
+      automatic_setup = true,
+      automatic_installation = true
+    }
+    require 'null-ls'.setup {
+      sources = { require('null-ls').builtins.diagnostics.markdownlint_cli2.with { args = { "$FILENAME" } } },
+      debug = true,
+    }
   end
-}
-
--- DAP
-config.dap.setup()
-require 'mason-nvim-dap'.setup {
-  ensure_installed = ensure_installed.dap,
-  automatic_setup = true,
-  automatic_installation = true
-}
-
--- NULL LS
-require 'mason-null-ls'.setup {
-  ensure_installed = ensure_installed.null_ls,
-  automatic_setup = true,
-  automatic_installation = true
-}
-require 'null-ls'.setup {
-  sources = { require('null-ls').builtins.diagnostics.markdownlint_cli2.with { args = { "$FILENAME" } } },
-  debug = true,
-}
-end
 }
