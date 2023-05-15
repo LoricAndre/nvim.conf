@@ -5,12 +5,19 @@ return {
   config = function()
     local ot = require 'oneterm'
 
-    vim.g.oneterm_yank = true
-    vim.g.oneterm_options = { border = "rounded" }
-    vim.g.oneterm_sessions_path = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/')
-    vim.g.oneterm_width = 0.85
-    vim.g.oneterm_height = 0.85
-    vim.g.oneterm_y_pos = 0.25
+    ot.setup {
+      yanks = {
+        enabled = true
+      },
+      window = {
+        options = {
+          border = "rounded"
+        }
+      },
+      sessions = {
+        path = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/')
+      }
+    }
 
     nmap { "<leader>f", ot.files_or_git_files }
     nmap { "<leader>F", ot.files }

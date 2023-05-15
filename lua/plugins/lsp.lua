@@ -97,7 +97,7 @@ return {
     'williamboman/mason-lspconfig.nvim',
     'jose-elias-alvarez/null-ls.nvim', 'jayp0521/mason-null-ls.nvim',
     'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap', "jayp0521/mason-nvim-dap.nvim",
-    "coq_nvim"
+    "coq_nvim", "nvim-lua/plenary.nvim"
   },
   config = function()
     require 'mason'.setup {
