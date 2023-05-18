@@ -1,5 +1,6 @@
 return {
   "nvim-neorg/neorg",
+  cond = false, -- disable
   build = ":Neorg sync-parsers",
   config = {
     load = {
