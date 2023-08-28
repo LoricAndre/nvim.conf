@@ -5,8 +5,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  config = function()
-  end,
+  config = true,
   keys = {
     { "<leader>f", function()
       local cwd = vim.fn.getcwd()
@@ -33,6 +32,9 @@ return {
     -- { "<leader>y", builtin.yanks },
     -- { "<leader>t", builtin.term },
     -- { "<leader>r", builtin.ranger },
+  },
+  cmd = {
+    'Telescope'
   }
 }
 
