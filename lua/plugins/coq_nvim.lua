@@ -1,6 +1,4 @@
-local vim = vim
-local imap = require 'utils'.imap
-
+-- This is lazy loaded, but lsp requires the module which will force load it as soon as lsp does
 return {
   'ms-jpq/coq_nvim',
   branch = 'coq',
@@ -15,13 +13,15 @@ return {
       ['keymap.jump_to_mark'] = '<C-j>',
       auto_start = 'shut-up'
     }
-
-    imap { '<Esc>', 'pumvisible() ? "\\<C-e><Esc>" : "\\<Esc>"', expr = true }
-    imap { '<C-c>', 'pumvisible() ? "\\<C-e><C-c>" : "\\<C-c>"', expr = true }
-    imap { '<BS>', 'pumvisible() ? "\\<C-e><BS>"  : "\\<BS>"', expr = true, replace_keycodes = false }
-    imap { '<CR>', 'pumvisible() ? (complete_info().selected == -1 ? "\\<C-e><CR>" : "\\<C-y>") : "\\<CR>"', expr = true }
-    imap { '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr = true }
-    imap { '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<BS>"', expr = true }
-    vim.cmd [[:COQnow --shut-up]]
-  end
+    vim.cmd [[COQnow --shut-up]]
+  end,
+  keys = {
+    { '<Esc>', 'pumvisible() ? "\\<C-e><Esc>" : "\\<Esc>"', mode = 'i', expr = true },
+    { '<C-c>', 'pumvisible() ? "\\<C-e><C-c>" : "\\<C-c>"', mode = 'i', expr = true },
+    { '<BS>', 'pumvisible() ? "\\<C-e><BS>"  : "\\<BS>"', mode = 'i', expr = true, replace_keycodes = false },
+    { '<CR>', 'pumvisible() ? (complete_info().selected == -1 ? "\\<C-e><CR>" : "\\<C-y>") : "\\<CR>"', mode = 'i', expr = true },
+    { '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', mode = 'i', expr = true },
+    { '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<BS>"', mode = 'i', expr = true }
+  },
+  lazy = false
 }

@@ -2,6 +2,7 @@ local nmap = require 'utils'.nmap
 return {
   -- 'https://codeberg.org/landre/OneTerm.nvim',
   dir = "~/src/OneTerm.nvim/",
+  cond = false,
   config = function()
     local ot = require 'oneterm'
 

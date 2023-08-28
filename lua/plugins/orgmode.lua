@@ -1,5 +1,6 @@
 return {
   'nvim-orgmode/orgmode',
+  cond = false,
   dependencies = {
     {'akinsho/org-bullets.nvim', config = true},
     {'lukas-reineke/headlines.nvim', config = true},
