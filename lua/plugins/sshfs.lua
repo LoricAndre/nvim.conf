@@ -15,9 +15,9 @@ return {
   },
   keys = {
     {
-      "<leader>F",
+      "<leader>f",
       function()
-        if require("remote-sshfs.connections").is_connected then
+        if require("remote-sshfs.connections").is_connected() then
           require('remote-sshfs.api').find_files()
         else
           local cwd = vim.fn.getcwd()
@@ -37,7 +37,7 @@ return {
     {
       "<leader>a",
       function()
-        if require("remote-sshfs.connections").is_connected then
+        if require("remote-sshfs.connections").is_connected() then
           require('remote-sshfs.api').live_grep()
         else
           require('telescope.builtin').live_grep()
