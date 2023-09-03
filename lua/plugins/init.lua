@@ -4,5 +4,6 @@ return {
   'rmagatti/auto-session',
   { 'numtostr/comment.nvim', config = true },
   { 'windwp/nvim-autopairs', event = 'InsertEnter' },
-  'rose-pine/neovim'
+  'rose-pine/neovim',
+  { 'vigoux/notifier.nvim', config = true }
 }
