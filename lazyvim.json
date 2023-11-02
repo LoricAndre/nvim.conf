@@ -1,0 +1,11 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.lang.omnisharp",
+    "lazyvim.plugins.extras.ui.edgy",
+    "lazyvim.plugins.extras.util.project"
+  ],
+  "news": {
+    "NEWS.md": "2191"
+  },
+  "version": 2
+}
