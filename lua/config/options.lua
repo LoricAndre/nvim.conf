@@ -30,10 +30,22 @@ local options = {
   undofile = true,
   wildmenu = true,
   signcolumn = "no",
+  laststatus = 3,
+  splitkeep = "screen",
 }
 
 if vim.g.neovide then
   vim.g.neovide_scale_factor = 0.75
+end
+
+if vim.fn.has("win32") then
+  options.shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell"
+  options.shellcmdflag =
+    "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+  options.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+  options.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+  options.shellquote = ""
+  options.shellxquote = ""
 end
 
 for k, v in pairs(options) do
