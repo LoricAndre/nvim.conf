@@ -27,6 +27,8 @@ local options = {
   undodir = vim.fn.stdpath("data") .. "/undodir",
   undofile = true,
   wildmenu = true,
+  laststatus = 3,
+  splitkeep = "screen"
 }
 
 for k, v in pairs(options) do

@@ -8,7 +8,17 @@ return {
   },
   config = function()
     local ts = require("telescope")
-    ts.setup {}
+    local has_trouble, trouble = pcall(require, "trouble.providers.telescope")
+    local opts = {}
+    if has_trouble then
+      opts["defaults"] = {
+        mappings = {
+          i = {["<C-t>"] = trouble.open_with_trouble},
+          n = {["<C-t>"] = trouble.open_with_trouble},
+        }
+      }
+    end
+    ts.setup(opts)
     ts.load_extension('fzf')
     pcall(ts.load_extension, "notify")
   end,

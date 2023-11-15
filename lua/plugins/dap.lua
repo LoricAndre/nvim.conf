@@ -18,9 +18,9 @@ return {
 		end
 	end,
 	keys = {
-		{"<leader>db", function() dap.toggle_breakpoint() end, desc = "[DBG] Toggle Breakpoint"},
-		{"<leader>dc", function() dap.continue() end, desc = "[DBG] Continue"},
-		{"<leader>dd", function() dapui.toggle() end, desc = "[DBG] Toggle UI"},
-		{"<leader>dx", function() dapui.eval() end, {"n", "v"}, desc = "[DBG] Eval Code"}
+		{"<leader>db", function() require("dap").toggle_breakpoint() end, desc = "[DBG] Toggle Breakpoint"},
+		{"<leader>dc", function() require("dap").continue() end, desc = "[DBG] Continue"},
+		{"<leader>dd", function() require("dapui").toggle() end, desc = "[DBG] Toggle UI"},
+		{"<leader>dx", function() require("dapui").eval() end, {"n", "v"}, desc = "[DBG] Eval Code"}
 	}
 }
