@@ -66,11 +66,9 @@ return {
       {"<leader>gp", function() return require("gitsigns").preview_hunk({vim.fn.line('.'), vim.fn.line('v')}) end, mode = "v", desc = "[GIT] Preview Selected"},
       {"<leader>gS", function() return require("gitsigns").stage_buffer() end, desc = "[GIT] Stage Buffer"},
       {"<leader>gR", function() return require("gitsigns").reset_buffer() end, desc = "[GIT] Reset Buffer"},
-      {"<leader>gb", function() return require("gitsigns").blame_line({full=true}) end, desc = "[GIT] Blame Line"},
+      {"<leader>gb", function() return require("gitsigns").blame_line() end, desc = "[GIT] Blame Line"},
       {"<leader>gB", function() return require("gitsigns").toggle_current_line_blame() end, desc = "[GIT] Blame Line"},
       {"<leader>gd", function() return require("gitsigns").diffthis() end, desc = "[GIT] Diff Hunk"},
-      {"<leader>gp", function() return require("gitsigns").diffthis({vim.fn.line('.'), vim.fn.line('v')}) end, mode = "v", desc = "[GIT] Diff Selected"},
-      {"<leader>gD", function() return require("gitsigns").diffthis("~") end, desc = "[GIT] Diff Buffer"},
       {"<leader>gt", function() return require("gitsigns").toggle_deleted() end, desc = "[GIT] Toggle Deleted Lines"},
     }
   }
