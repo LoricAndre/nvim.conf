@@ -1,7 +1,7 @@
+local colorscheme = "nordfox"
 return {
-  "nyoom-engineering/oxocarbon.nvim",
+  "EdenEast/nightfox.nvim",
   config = function()
-    local colorscheme = "oxocarbon"
     vim.cmd("colorscheme " .. colorscheme)
   end
 }

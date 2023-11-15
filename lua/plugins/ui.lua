@@ -83,6 +83,10 @@ return {
     opts = {}
   },
   {
+    "folke/twilight.nvim",
+    opts = {}
+  },
+  {
     'stevearc/aerial.nvim',
     opts = {
       keymaps = {
@@ -96,21 +100,11 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons"
     },
-    commands = {
-      "AerialToggle",
-      "AerialOpen",
-      "AerialOpenAll",
-      "AerialNext",
-      "AerialNext",
-      "AerialGo",
-      "AerialInfo",
-      "AerialNavToggle",
-      "AerialNavOpen",
-    },
     keys = {
       { "<leader>ua", function() require("aerial").toggle() end,     desc = "[UI] Toggle Aerial" },
       { "<leader>uA", function() require("aerial").nav_toggle() end, desc = "[UI] Toggle Aerial" },
-    }
+    },
+    event = "VeryLazy"
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -133,6 +127,9 @@ return {
       "aerial.nvim"
     },
     opts = {
+      animate = {
+        enabled = false
+      },
       bottom = {
         {
           ft = "toggleterm",
@@ -166,5 +163,24 @@ return {
         }
       }
     }
+  },
+  {
+    'Bekaboo/dropbar.nvim',
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim'
+    },
+    lazy = false,
+    keys = {
+      {"<leader>ud", function() require("dropbar.api").pick() end, desc = "[UI] Dropbar"}
+    }
+  },
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+      }
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   }
 }
