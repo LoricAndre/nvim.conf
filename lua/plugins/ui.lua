@@ -30,28 +30,6 @@ return {
     }
   },
   {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "arkav/lualine-lsp-progress"
-    },
-    opts = {
-      extensions = {
-        "lazy",
-        "symbols-outline",
-        "quickfix"
-      },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename', 'symbols-outline' },
-        lualine_x = { 'lsp_progress', 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
-      },
-    }
-  },
-  {
     "lewis6991/gitsigns.nvim",
     opts = {},
     event = "VeryLazy",
@@ -73,11 +51,6 @@ return {
     }
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {}
-  },
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {}
@@ -87,100 +60,7 @@ return {
     opts = {}
   },
   {
-    'stevearc/aerial.nvim',
-    opts = {
-      keymaps = {
-        ["m"] = "actions.tree_open",
-        ["j"] = "actions.tree_close",
-        ["M"] = "actions.tree_open_recursive",
-        ["J"] = "actions.tree_close_recursive",
-      }
-    },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons"
-    },
-    keys = {
-      { "<leader>ua", function() require("aerial").toggle() end,     desc = "[UI] Toggle Aerial" },
-      { "<leader>uA", function() require("aerial").nav_toggle() end, desc = "[UI] Toggle Aerial" },
-    },
-    event = "VeryLazy"
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    "nvimdev/whiskyline.nvim",
     opts = {}
-  },
-  {
-    "folke/edgy.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "<leader>ue", function() require("edgy").toggle() end, desc = "[UI] Toggle Edgy" }
-    },
-    dependencies = {
-      "nvim-tree.lua",
-      "toggleterm.nvim",
-      "aerial.nvim"
-    },
-    opts = {
-      animate = {
-        enabled = false
-      },
-      bottom = {
-        {
-          ft = "toggleterm",
-          title = "Terminal",
-          size = { height = 0.3 },
-          -- exclude floating windows
-          filter = function(buf, win)
-            return vim.api.nvim_win_get_config(win).relative == ""
-          end,
-          pinned = true,
-          open = function()
-            require("toggleterm").toggle()
-          end
-        },
-      },
-      left = {
-        {
-          title = "Nvim Tree",
-          ft = "NvimTree",
-          pinned = true,
-          open = "NvimTreeOpen",
-        },
-      },
-      right = {
-        {
-          ft = "aerial",
-          pinned = true,
-          open = function()
-            require("aerial").open()
-          end
-        }
-      }
-    }
-  },
-  {
-    'Bekaboo/dropbar.nvim',
-    dependencies = {
-      'nvim-telescope/telescope-fzf-native.nvim'
-    },
-    lazy = false,
-    keys = {
-      {"<leader>ud", function() require("dropbar.api").pick() end, desc = "[UI] Dropbar"}
-    }
-  },
-  {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
-    config = function()
-      require('dashboard').setup {
-      }
-    end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   }
 }

@@ -12,5 +12,6 @@ return {
 		require("coq")
 	end,
 	build = ":COQdeps",
-	event = "VeryLazy"
+	event = "VeryLazy",
+        cond = false
 }

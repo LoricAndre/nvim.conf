@@ -26,6 +26,7 @@ return {
     local lspconfig = require("lspconfig")
 
     local has_coq, coq = pcall(require, "coq_nvim")
+    local has_epo, epo = pcall(require, "epo")
 
     mason.setup(mason_opts)
     mason_lspconfig.setup()
@@ -35,6 +36,14 @@ return {
         local opts = lsp_handlers[server_name] or {}
         if has_coq then
           return lspconfig[server_name].setup(coq.lsp_ensure_capabilities(opts))
+        elseif has_epo then
+          return lspconfig[server_name].setup(vim.tbl_deep_extend('force', opts, {
+            capabilities = vim.tbl_deep_extend(
+              'force',
+              vim.lsp.protocol.make_client_capabilities(),
+              epo.register_cap()
+            )
+          }))
         else
           return lspconfig[server_name].setup(opts)
         end

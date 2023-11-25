@@ -14,5 +14,5 @@ vim.keymap.set({"v"}, ">", ">gv")
 vim.keymap.set({"n", "v", "o", "t"}, "<leader><Space>", "<CMD>b#<CR>")
 
 vim.keymap.set("n", "<Esc>", "<CMD>noh<CR>")
-vim.keymap.set("n", "<Tab>", "<CMD>bn<CR>")
-vim.keymap.set("n", "<S-Tab>", "<CMD>bp<CR>")
+-- vim.keymap.set("n", "<Tab>", "<CMD>bn<CR>")
+-- vim.keymap.set("n", "<S-Tab>", "<CMD>bp<CR>")
