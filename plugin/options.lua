@@ -2,7 +2,7 @@ local options = {
   autoindent = true,
   backspace = 'indent,eol,start',
   clipboard = 'unnamedplus',
-  completeopt = 'menuone,noselect',
+  completeopt = 'menu,menuone,preview,noselect',
   expandtab = true,
   foldexpr = 'nvim_treesitter#foldexpr()',
   foldmethod = 'expr',
@@ -28,7 +28,8 @@ local options = {
   undofile = true,
   wildmenu = true,
   laststatus = 3,
-  splitkeep = "screen"
+  splitkeep = "screen",
+  statusline = require("statusline").build()
 }
 
 for k, v in pairs(options) do

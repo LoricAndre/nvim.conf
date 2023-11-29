@@ -1,3 +1,15 @@
+local kind_icon = {
+  snippet = " ",
+  lsp = " ",
+  ["function"] = "󰅲 ",
+  keyword = " ",
+  text = " ",
+  property = "󰉺 ",
+  field = "󰉺 ",
+  variable = "󰫧 ",
+}
+
+
 return {
   "nvimdev/epo.nvim",
   opts = {
@@ -5,13 +17,16 @@ return {
     debounce = 50,
     signature = true,
     snippet_path = nil,
+    kind_format = function(k)
+      return kind_icon[k:lower()] or k:upper() --:sub(1, 1)
+    end
   },
   keys = {
     {"<Tab>", function()
       if vim.fn.pumvisible() == 1 then
         return '<C-n>'
-      -- elseif vim.snippet.jumpable(-1) then
-      --   return '<cmd>lua vim.snippet.jump(1)<CR>'
+      elseif vim.snippet.jumpable(1) then
+        return '<cmd>lua vim.snippet.jump(1)<CR>'
       else
         return '<Tab>'
       end
@@ -23,8 +38,8 @@ return {
     {"<S-Tab>", function()
       if vim.fn.pumvisible() == 1 then
         return '<C-p>'
-      -- elseif vim.snippet.jumpable(-1) then
-      --   return '<cmd>lua vim.snippet.jump(-1)<CR>'
+      elseif vim.snippet.jumpable(-1) then
+        return '<cmd>lua vim.snippet.jump(-1)<CR>'
       else
         return '<S-Tab>'
       end

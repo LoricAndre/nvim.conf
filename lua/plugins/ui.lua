@@ -59,8 +59,4 @@ return {
     "folke/twilight.nvim",
     opts = {}
   },
-  {
-    "nvimdev/whiskyline.nvim",
-    opts = {}
-  }
 }

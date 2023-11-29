@@ -4,7 +4,7 @@ return {
     version = "*",
     config = function()
       local opts    = {
-        open_mapping = "",
+        open_mapping = "<leader>t",
         direction = "horizontal"
       }
       -- lazygit
@@ -16,7 +16,6 @@ return {
     event   = "VeryLazy",
     keys = {
       {"<leader>gg", function() Lazygit:toggle() end, desc = "[GIT] Toggle Lazygit"},
-      {"", function() require("toggleterm").toggle() end, desc = "[GIT] Toggleterm"},
     }
   }
 }
