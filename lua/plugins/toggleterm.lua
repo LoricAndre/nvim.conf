@@ -4,7 +4,7 @@ return {
     version = "*",
     config = function()
       local opts    = {
-        open_mapping = "<leader>t",
+        open_mapping = "<C-t>",
         direction = "horizontal"
       }
       -- lazygit
