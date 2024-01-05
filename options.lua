@@ -1,4 +1,5 @@
 local options = {
+  title = true,
   autoindent = true,
   backspace = 'indent,eol,start',
   clipboard = 'unnamedplus',
@@ -6,7 +7,8 @@ local options = {
   expandtab = true,
   foldexpr = 'nvim_treesitter#foldexpr()',
   foldmethod = 'expr',
-  foldlevelstart = 1,
+  foldlevelstart = -1,
+  foldenable = false,
   hidden = true,
   smartcase = true,
   incsearch = true,

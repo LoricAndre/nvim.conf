@@ -92,12 +92,27 @@ M.enable_plugins = {
 
 -- add extra plugins in here
 M.plugins = {
+  {
+    "romgrk/todoist.nvim",
+    build = ":TodoistInstall"
+  },
+  require("user.plugins.obsidian")
 }
+
+-- for i, file in ipairs(vim.fn.glob("plugins/*.lua")) do
+--   -- M.plugins = vim.tbl_extend(M.plugins, {})
+-- end
 
 -- add extra configuration options here, like extra autocmds etc.
 -- feel free to create your own separate files and require them in here
 M.user_conf = function()
   require("user.mappings")
+  if vim.g.neovide then
+    require("user.neovide")
+  end
+  if vim.fn.has("win32") then
+    require("user.windows")
+  end
 end
 
 return M
