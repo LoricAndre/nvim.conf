@@ -14,6 +14,7 @@ local lsp_handlers = {}
 
 return {
   "williamboman/mason.nvim",
+  after = "coq_nvim",
   dependencies = {
     "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
