@@ -1,3 +1,4 @@
+-- https://github.com/ms-jpq/coq_nvim/issues/589 for syntax error on windows
 return {
 	"ms-jpq/coq_nvim",
 	branch = "coq",
@@ -12,6 +13,5 @@ return {
 		require("coq")
 	end,
 	build = ":COQdeps",
-	event = "VeryLazy",
-        cond = false
+	event = "VeryLazy"
 }

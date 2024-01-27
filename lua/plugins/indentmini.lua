@@ -9,4 +9,5 @@ return {
     })
     vim.cmd.highlight('default link IndentLine Comment')
   end,
+  enabled = false
 }

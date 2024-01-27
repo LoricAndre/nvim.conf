@@ -12,7 +12,8 @@ return {
       ["<leader>g"] = { name = "+git" },
       ["<leader>q"] = { name = "+trouble" },
       ["<leader>u"] = { name = "+ui" },
-      ["<leader>d"] = { name = "+debug" }
+      ["<leader>d"] = { name = "+debug" },
+      ["<leader>r"] = { name = "+sniprun" }
     })
     return wk.setup()
   end
