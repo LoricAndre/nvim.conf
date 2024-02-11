@@ -9,7 +9,7 @@ return {
       next = "k"
     }
   },
-  commands = {
+  cmd = {
     "Trouble",
     "TroubleToggle"
   },

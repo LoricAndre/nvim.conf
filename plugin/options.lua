@@ -30,7 +30,7 @@ local options = {
   wildmenu = true,
   laststatus = 3,
   splitkeep = "screen",
-  statusline = require("statusline").build(),
+  -- statusline = require("statusline").build(),
   signcolumn = "yes:1"
 }
 

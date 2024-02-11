@@ -40,7 +40,7 @@ return {
       },
       {
         ft = "Trouble",
-        open = "Trouble workspace_dagnostics",
+        open = "Trouble workspace_diagnostics",
         pinned = true
       },
       "neo-tree",

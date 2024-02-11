@@ -18,7 +18,7 @@ return {
   dependencies = {
     "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
-    "nvimtools/none-ls.nvim"
+    "nvimtools/none-ls.nvim",
   },
   event = "VeryLazy",
   config = function()
@@ -42,7 +42,7 @@ return {
             capabilities = vim.tbl_deep_extend(
               'force',
               vim.lsp.protocol.make_client_capabilities(),
-              epo.register_cap()
+              epo.register_cap(),
             )
           }))
         else
@@ -53,8 +53,8 @@ return {
   end,
   keys = {
     { "<leader>ca", function() return vim.lsp.buf.code_action({ apply = true }) end, desc = "[LSP] Code Action" },
-    { "<leader>ca", function() return vim.lsp.buf.code_action({ apply = true }) end, mode = "v", desc = "[LSP] Code Action" },
-    { "<leader>cf", function() return vim.lsp.buf.format({ async = true }) end,  desc = "[LSP] Format" },
-    { "<leader>cf", function() return vim.lsp.buf.format({ async = true }) end,  mode = "v", desc = "[LSP] Format" }
+    { "<leader>ca", function() return vim.lsp.buf.code_action({ apply = true }) end, mode = "v",                desc = "[LSP] Code Action" },
+    { "<leader>cf", function() return vim.lsp.buf.format({ async = true }) end,      desc = "[LSP] Format" },
+    { "<leader>cf", function() return vim.lsp.buf.format({ async = true }) end,      mode = "v",                desc = "[LSP] Format" }
   }
 }

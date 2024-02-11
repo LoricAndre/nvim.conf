@@ -12,7 +12,7 @@ local kind_icon = {
 
 return {
   "nvimdev/epo.nvim",
-  enabled = false,
+  -- enabled = false,
   opts = {
     fuzzy = true,
     debounce = 50,
