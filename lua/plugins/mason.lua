@@ -42,7 +42,7 @@ return {
             capabilities = vim.tbl_deep_extend(
               'force',
               vim.lsp.protocol.make_client_capabilities(),
-              epo.register_cap(),
+              epo.register_cap()
             )
           }))
         else
