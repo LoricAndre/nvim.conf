@@ -13,7 +13,8 @@ return {
       ["<leader>q"] = { name = "+trouble" },
       ["<leader>u"] = { name = "+ui" },
       ["<leader>d"] = { name = "+debug" },
-      ["<leader>r"] = { name = "+sniprun" }
+      -- ["<leader>r"] = { name = "+sniprun" },
+      ["gc"] = { name = "+comment" },
     })
     return wk.setup()
   end

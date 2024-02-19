@@ -28,6 +28,7 @@ return {
 
     local has_coq, coq = pcall(require, "coq_nvim")
     local has_epo, epo = pcall(require, "epo")
+    local has_cmp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 
     mason.setup(mason_opts)
     mason_lspconfig.setup()
@@ -45,6 +46,11 @@ return {
               epo.register_cap()
             )
           }))
+        elseif has_cmp then
+          local capabilities = cmp_lsp.default_capabilities()
+          return lspconfig[server_name].setup {
+            capabilities = capabilities
+          }
         else
           return lspconfig[server_name].setup(opts)
         end
