@@ -5,5 +5,6 @@ return {
     'tpope/vim-rhubarb',
     'shumphrey/fugitive-gitlab.vim',
     'tommcdo/vim-fugitive-blame-ext'
-  }
+  },
+  event = 'VeryLazy'
 }
