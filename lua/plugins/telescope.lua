@@ -8,15 +8,20 @@ return {
   },
   config = function()
     local ts = require("telescope")
+    local themes = require("telescope.themes")
     local has_trouble, trouble = pcall(require, "trouble.providers.telescope")
-    local opts = {}
+    local theme_opts = themes.get_ivy()
+    local opts = {
+      defaults = {
+        mappings = {},
+      }
+    }
+    opts["defaults"] = vim.tbl_extend("force", theme_opts, opts["defaults"])
     if has_trouble then
-      opts["defaults"] = {
-        mappings = {
+      opts["defaults"]["mappings"] = vim.tbl_extend("force", opts["defaults"]["mappings"], {
           i = {["<C-t>"] = trouble.open_with_trouble},
           n = {["<C-t>"] = trouble.open_with_trouble},
-        }
-      }
+      })
     end
     ts.setup(opts)
     ts.load_extension('fzf')

@@ -44,6 +44,7 @@ return {
         pinned = true
       },
       "neo-tree",
-    }
+    },
+    animate = {enabled = false}
   }
 }
