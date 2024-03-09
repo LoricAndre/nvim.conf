@@ -59,6 +59,7 @@ return {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lua",
+    "davidsierradz/cmp-conventionalcommits",
     {
       "saadparwaiz1/cmp_luasnip",
       dependencies = {
@@ -147,6 +148,7 @@ return {
         { name = 'nvim_lua' },
         { name = 'nvim_lsp_document_symbol' },
         { name = 'nvim_lsp_signature_help' },
+        { name = 'conventionalcommits' }
       })
     }
     return require("cmp").setup(opts)
