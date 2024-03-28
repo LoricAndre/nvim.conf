@@ -38,11 +38,11 @@ return {
         pinned = true,
         open = "Neotree reveal",
       },
-      {
-        ft = "Trouble",
-        open = "Trouble workspace_diagnostics",
-        pinned = true
-      },
+      -- {
+      --   ft = "Trouble",
+      --   open = "Trouble workspace_diagnostics",
+      --   pinned = true
+      -- },
       "neo-tree",
     },
     animate = {enabled = false}

@@ -2,6 +2,7 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+    cond = not vim.g.started_by_firenvim,
     opts = {
       {
         lsp = {

@@ -2,7 +2,8 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
-    "jay-babu/mason-nvim-dap.nvim"
+    "jay-babu/mason-nvim-dap.nvim",
+    "nvim-neotest/nvim-nio"
   },
   after = {
     "williamboman/mason.nvim"

@@ -31,7 +31,8 @@ local options = {
   laststatus = 3,
   splitkeep = "screen",
   -- statusline = require("statusline").build(),
-  signcolumn = "yes:1"
+  signcolumn = "yes:1",
+  sessionoptions = "buffers,curdir,folds,tabpages,winpos,terminal"
 }
 
 for k, v in pairs(options) do

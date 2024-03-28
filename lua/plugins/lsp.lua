@@ -21,6 +21,7 @@ return {
     "nvimtools/none-ls.nvim",
     {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      cond = false,
       config = function()
         vim.diagnostic.config({
           virtual_text = false,
@@ -67,9 +68,14 @@ return {
     })
   end,
   keys = {
-    { "<leader>ca", function() return vim.lsp.buf.code_action({ apply = true }) end, desc = "[LSP] Code Action" },
-    { "<leader>ca", function() return vim.lsp.buf.code_action({ apply = true }) end, mode = "v",                desc = "[LSP] Code Action" },
-    { "<leader>cf", function() return vim.lsp.buf.format({ async = true }) end,      desc = "[LSP] Format" },
-    { "<leader>cf", function() return vim.lsp.buf.format({ async = true }) end,      mode = "v",                desc = "[LSP] Format" }
+    { "<leader>la",  function() return vim.lsp.buf.code_action({ apply = true }) end, desc = "[LSP] Code Action" },
+    { "<leader>la",  function() return vim.lsp.buf.code_action({ apply = true }) end, mode = "v",                   desc = "[LSP] Code Action" },
+    { "<leader>lr",  function() return vim.lsp.buf.rename() end,                      desc = "[LSP] Rename" },
+    { "K",           function() return vim.lsp.buf.hover() end,                       desc = "[LSP] Hover" },
+    { "<leader>cf",  function() return vim.lsp.buf.format({ async = true }) end,      desc = "[LSP] Format" },
+    { "<leader>cf",  function() return vim.lsp.buf.format({ async = true }) end,      mode = "v",                   desc = "[LSP] Format" },
+    { '<leader>lci', function() return vim.lsp.buf.incoming_calls() end,              desc = '[LSP] Incoming calls' },
+    { '<leader>lco', function() return vim.lsp.buf.outgoing_calls() end,              desc = '[LSP] Outgoing calls' },
+
   }
 }

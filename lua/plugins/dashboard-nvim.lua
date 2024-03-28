@@ -2,7 +2,7 @@ local sections = {
   mason = {
     icon = " ",
     desc = "Mason",
-    key = "p",
+    key = "a",
     action = "Mason"
   },
   files = {
@@ -11,17 +11,35 @@ local sections = {
     key = "f",
     action = "Telescope find_files"
   },
-  session = {
-    icon = " ",
-    desc = "Load Session",
-    key = "s",
-    action = "SessionLoad"
+  projects = {
+    icon = "󰊢 ",
+    desc = "List projects",
+    key = "p",
+    action = "Telescope neovim-project"
   },
-  config = {
+  sessions = {
     icon = " ",
-    desc = "Edit config",
-    key = "c",
-    action = "cd " .. vim.fn.stdpath("config") .. " | Telescope find_files"
+    desc = "List sessions",
+    key = "w",
+    action = "SessionManager load_session"
+  },
+  dir_session = {
+    icon = " ",
+    desc = "Load current dir session",
+    key = "s",
+    action = "SessionManager load_current_dir_session"
+  },
+  last_session = {
+    icon = " ",
+    desc = "Load last session",
+    key = "S",
+    action = "SessionManager load_last_session"
+  },
+  repos = {
+    icon = "󰊢 ",
+    desc = "List repos",
+    key = "r",
+    action = "Telescope repo"
   }
 }
 
@@ -30,15 +48,17 @@ return {
   event = 'VimEnter',
   config = function()
     require('dashboard').setup {
-      theme = "doom",
+      theme = "hyper",
       change_to_vcs_root = true,
       config = {
         week_header = {
           enable = true
         },
-        center = {
+        shortcut = {
           sections.files,
-          sections.session,
+          sections.sessions,
+          sections.dir_session,
+          sections.last_session,
           sections.config,
           sections.mason,
         }

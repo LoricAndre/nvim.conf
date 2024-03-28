@@ -60,6 +60,7 @@ return {
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lua",
     "davidsierradz/cmp-conventionalcommits",
+    "rafamadriz/friendly-snippets",
     {
       "saadparwaiz1/cmp_luasnip",
       dependencies = {
@@ -69,8 +70,10 @@ return {
     },
     "onsails/lspkind-nvim"
   },
+  event = "VeryLazy",
   config = function()
     local cmp = require("cmp")
+    require("luasnip.loaders.from_vscode").lazy_load()
 
     set_highlights()
 
